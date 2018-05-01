@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <!-- <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css"/> Reset style sheet requested by instructions -->
+     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"> <!-- Heading Font-->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"> <!-- Bootstrap used to design the layout-->
+     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css"/>  <!-- External style sheet for custom aesthetic adjustments-->
+     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">     <!-- Favicon-->
+    <title>StarWars RPG</title>
+</head>
+<body>  
+    <div class="container p-0" id="main-content">        
+        <div class="row">    
+            <div class="col-12">   
+                <h1 id="starWars-header" class="font-weight-bold text-center text-warning">Star Wars RPG</h1>    
+            </div>            
+        </div>                      
+        <div class="container pb-3 border">  
+            <div class="row" id="top-row-content">
+                <div class="col-12 text-center">
+                    <p class="text-light p-3 mb-0" id="message-board">
+                        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+                        <br> 
+                        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+                        <br>
+                        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+                        <br> 
+                        "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+                    </p>
+                </div> 
+            </div> 
+            <div class="row" id="images-middle-row">
+                <div class="col-12 text-light text-center ">
+                    <h4 id="character-heading">PICK A CHARACTER</h4>
+                </div> 
+                <div class="row w-100 d-flex justify-content-center" id="choice-row">
+                    <div class="mr-4 mr-4 character-start" id="darth-vader">   
+                        <p class="m-0 h6 text-center">Darth Vader</p>
+                        <div class="p-2" >
+                            <img src="assets/images/darth_vader.jpg" class="character-image">  
+                        </div>
+                        <p class="m-0 h6 text-center">150</p>  
+                    </div>
+                    <div class="mr-4 mr-4 character-start" id="yoda">   
+                        <p class="m-0 h6 text-center">Yoda</p>
+                        <div class="p-2" >
+                            <img src="assets/images/yoda.jpg" class="character-image">  
+                        </div>
+                        <p class="m-0 h6 text-center">150</p>  
+                    </div> 
+                    <div class="mr-4 mr-4 character-start" id="obi-wan">   
+                        <p class="m-0 h6 text-center">Obi-Wan</p>
+                        <div class="p-2" >
+                            <img src="assets/images/obi_wan.jpg" class="character-image">  
+                        </div>
+                        <p class="m-0 h6 text-center">150</p>  
+                    </div>  
+                    <div class="mr-4 mr-4 character-start" id="han-solo">    
+                        <p class="m-0 h6 text-center">Han Solo</p> 
+                        <div class="p-2" > 
+                            <img src="assets/images/han_solo.png" class="character-image">  
+                        </div>
+                        <p class="m-0 h6 text-center">150</p>  
+                    </div>
+                </div>
+            </div>   
+            <div class="row border m-2 p-2"> 
+                <div class="col-12 text-center">
+                    <h5 class="font-weight-bold text-warning custom-font mb-4"> Battle Arena</h5>
+                </div> 
+                <div class="col-md-6 text-center">
+                    <h6 class="font-weight-bold text-light custom-font">Your Player</h6>
+                    <img src="assets/images/hero_fighterShip.jpg" class="fighter-ship">  
+                    <button type="button" class="btn btn-sm btn-danger mt-2"> ATTACK !</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <h6 class="font-weight-bold text-light custom-font">Defender</h6>
+                    <img src="assets/images/enemy_fighterShip.jpg" class="fighter-ship">   
+                </div>
+                <div class="col-12 mt-2 text-center">  
+                    <p class="text-light" id="attack-text"> "Sed ut perspiciatis unde omnis iste natus error sit voluptatem </p>  
+                    <p class="text-light" id="defend-text"> "Sed ut perspiciatis unde omnis iste natus error sit voluptatem </p>  
+                </div>
+            </div>
+            <div class="row m-2 d-flex justify-content-center border" id="graveyard">
+                <h5 class="font-weight-bold text-danger custom-font mt-1">Graveyard</h5>
+            </div>
+        </div> 
+    </div>         
+    <script src="assets/javascript/game.js"></script> <!--Link to external javascript file -->   
+</body>
+</html>    

@@ -1,0 +1,57 @@
+body {
+    background-image: url("../images/space_background.jpg");  
+    background-size: cover; 
+}
+
+#starWars-header {
+    margin-top: 0.25em; 
+    font-family: 'Press Start 2P', 'cursive'; 
+} 
+
+.custom-font {
+    font-family: 'Press Start 2P', 'cursive'; 
+} 
+
+#message-board {
+    font-family: monospace; 
+    font-size: 1.1em; 
+} 
+
+.character-image {
+    height: 4em; 
+    width: 7em; 
+}  
+  
+.character-start {
+    background-color: white;
+    color: black; 
+    border-style: solid;
+    border-color: green; 
+    border-width: 0.25em;
+}  
+
+.character-enemy {
+    background-color: red;
+    color: black; 
+    border-style: solid;
+    border-color: black; 
+    border-width: 0.25em;
+}  
+
+.character-defender {
+    background-color: black;
+    color: white; 
+    border-style: solid;
+    border-color: green; 
+    border-width: 0.25em;
+
+}
+
+.fighter-ship {
+    height: 14em; 
+    width: 27em; 
+}
+ 
+.hide-div {
+    display:none; 
+}
