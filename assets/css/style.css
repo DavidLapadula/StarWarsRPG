@@ -1,6 +1,8 @@
 body {
     background-image: url("../images/space_background.jpg");  
     background-size: cover; 
+    background-attachment: fixed;
+    background-position: center; 
 }
 
 #starWars-header {
@@ -8,7 +10,7 @@ body {
     font-family: 'Press Start 2P', 'cursive'; 
 } 
 
-.custom-font {
+.custom-font { 
     font-family: 'Press Start 2P', 'cursive'; 
 } 
 
@@ -20,8 +22,8 @@ body {
 .character-image {
     height: 4em; 
     width: 7em; 
-}  
-  
+}    
+   
 .character-start {
     background-color: white;
     color: black; 
@@ -29,7 +31,7 @@ body {
     border-color: green; 
     border-width: 0.25em;
 }  
-
+ 
 .character-enemy {
     background-color: red;
     color: black; 
@@ -44,14 +46,11 @@ body {
     border-style: solid;
     border-color: green; 
     border-width: 0.25em;
-
+ 
 }
 
 .fighter-ship {
     height: 14em; 
-    width: 27em; 
+    width: 30em; 
 }
- 
-.hide-div {
-    display:none; 
-}
+
