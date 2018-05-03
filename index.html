@@ -12,86 +12,98 @@
      <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">     <!-- Favicon-->
     <title>StarWars RPG</title>
 </head> 
-    <body>  
+    <body>     
         <div class="container p-0" id="main-content">        
             <div class="row">    
                 <div class="col-12">   
                     <h1 id="starWars-header" class="font-weight-bold text-center text-warning">Star Wars RPG</h1>    <!-- Game Header-->
                 </div>            
-            </div>                      
+            </div>                       
             <div class="container pb-3 border">  
                 <div class="row" id="top-row-content"> <!-- Displays original message, gets hidden when game starts-->
-                    <div class="col-12 text-center" id="message-board">
+                    <div class="col-12 " id="message-board">
                         <p class="text-light p-3 mb-0">
-                            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
-                            <br> 
-                            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
-                            <br>
-                            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
-                            <br> 
-                            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+                            In a galaxy not so far away, there exists an exiting Star Wars Application you should play. 
+                            <br> <br>
+                            Start by clicking on a character you wish to play with, and then choose your first enemy. 
+                            The goal is to defeat all the enemies by clicking the 'Attack' button, and bring their HP to 0 before your HP runs out. 
+                            <br> <br>
+                            Choose  wisely because as soon as you attack you will be counter attacked by the enemy! Your 'Attack Power' will grow with
+                            each successful attack, but your enemies will remain constant. Good Luck
                         </p> 
-                    </div> 
-                </div>  
+                    </div>       
+                </div>            
                 <div class="row" id="images-middle-row">
                     <div class="col-12 text-light text-center mt-2">
-                        <h4 class="text-warning" id="character-heading">PICK A CHARACTER TO START</h4> <!-- Has the charatcer choices. Gets moved to the top div once the game starts and enemies remain there-->
-                    </div> 
-                    <div class="row w-100 d-flex justify-content-center" id="choice-row">
-                        <div class="mr-4 mt-2 character-start" id="darth-vader">   
-                            <p class="m-0 h6 text-center">Darth Vader</p> <!-- Counter attack power stored in value because it is static-->
-                            <div class="p-2" >
-                                <img src="assets/images/darth_vader.jpg" class="character-image">  
-                            </div>  
-                            <p class="m-0 h6 text-center" id="darth-vader-data">X</p>   
-                        </div>
-                        <div class="mr-4 mt-2 character-start" id="yoda">    
-                            <p class="m-0 h6 text-center">Yoda</p>  
-                            <div class="p-2" >
-                                <img src="assets/images/yoda.jpg" class="character-image">  
-                            </div> 
-                            <p class="m-0 h6 text-center" id="yoda-data">X</p>  
-                        </div> 
-                        <div class="mr-4 mt-2 character-start" id="obi-wan">   
-                            <p class="m-0 h6 text-center">Obi-Wan</p> 
-                            <div class="p-2" >
-                                <img src="assets/images/obi_wan.jpg" class="character-image">  
-                            </div>
-                            <p class="m-0 h6 text-center" id="obi-wan-data">X</p>  
-                        </div>  
-                        <div class="mr-4 mt-2 character-start" id="han-solo">     
-                            <p class="m-0 h6 text-center">Han Solo</p>  
-                            <div class="p-2" > 
-                                <img src="assets/images/han_solo.png" class="character-image">  
-                            </div>
-                            <p class="m-0 h6 text-center" id="han-solo-data">X</p>                              
-                        </div>   
+                        <h4 class="text-warning" id="character-heading">STAR WARS CHARACTERS</h4> <!-- Has the charatcer choices. Gets moved to the top div once the game starts and enemies remain there-->
+                        <h4 class="text-danger" id="enemy-heading">ENEMIES AVAILABLE: FIGHT SECTION</h4> <!-- Has the charatcer choices. Gets moved to the top div once the game starts and enemies remain there-->
                     </div>  
-                </div>    
+                    <div class="row w-100 d-flex justify-content-center" id="choice-row">   
+                        <div class="character-play mr-4 mt-2 character-start"> 
+                            <div class="remove-click"> 
+                                <p class="m-0 h6 text-center">Darth Vader</p> 
+                                <img src="assets/images/darth_vader.jpg" class="character-image p-2">  
+                                <p class="m-0 h6 text-center data" id="darth-vader-data">X</p>  
+                            </div>  
+                        </div>       
+                        <div class="character-play mr-4 mt-2 character-start">   
+                            <div class="remove-click">  
+                                <p class="m-0 h6 text-center remove-click">Yoda</p>  
+                                <img src="assets/images/yoda.jpg" class="character-image p-2">     
+                                <p class="m-0 h6 text-center remove-click data" id="yoda-data">X</p>    
+                            </div>   
+                        </div>      
+                        <div class="character-play mr-4 mt-2 character-start" >     
+                            <div class="remove-click"> 
+                                <p class="m-0 h6 text-center remove-click">Obi-Wan</p>            
+                                <img src="assets/images/obi_wan.jpg" class="character-image p-2">  
+                                <p class="m-0 h6 text-center remove-click data" id="obi-wan-data">X</p>  
+                            </div>
+                        </div>      
+                        <div class="character-play mr-4 mt-2 character-start">        
+                            <div class="remove-click"> 
+                                <p class="m-0 h6 text-center remove-click">Han Solo</p>    
+                                <img src="assets/images/han_solo.png" class="character-image p-2">      
+                                <p class="m-0 h6 text-center remove-click data" id="han-solo-data">X</p>     
+                            </div>                           
+                        </div>               
+                    </div>      
+                </div>        
                 <div class="row border m-2 p-2" id="battle-arena">  <!-- Area where the 'battle' occurs. Chosen player and enemy get moved on top of 'fighter ship'-->
                     <div class="col-12 text-center"> 
                         <h5 class="font-weight-bold text-warning custom-font mb-4"> Battle Arena</h5>
                     </div> 
                     <div class="row">
-                        <div class="col-md-6 col-sm-12 text-center mb-3" id="character-ship">
+                        <div class="col-md-6 col-sm-12 text-center" id="character-ship">
                             <h6 class="font-weight-bold text-light custom-font">Your Player</h6> <!-- Player Chosen-->
                             <img src="assets/images/hero_fighterShip.jpg" class="fighter-ship img-fluid">  
-                            <button type="button" class="btn btn-sm btn-danger mt-2" id="attack-button"> ATTACK !</button>
-                        </div>
+                            <div class="active-image-character" id="active-player">
+                            </div> 
+                            <button type="button" class="btn btn-sm btn-danger mt-2" id="attack-button" disabled> ATTACK !</button>
+                        </div> 
                         <div class="col-md-6 col-sm-12 text-center" id="defender-ship">
                             <h6 class="font-weight-bold text-light custom-font">Defender</h6> <!-- Current defender-->
                             <img src="assets/images/enemy_fighterShip.jpg" class="fighter-ship img-fluid">   
+                            <div class="active-image-enemy" id="active-defender">
+                            </div>  
+                        </div> 
+                        <div class="row w-100 m-3 text-center">   
+                            <div class="col-md-6">
+                                    <p class="text-danger h4 font-weight-bold mb-1" id="result-text"></p> 
+                            </div> 
+                            <div class="col-md-6">
+                                <p class="text-warning h5 mb-2" id="attack-text"></p>   
+                                <p class="text-warning h5 m-0" id="defend-text"></p> 
+                            </div>
                         </div>
-                        <div class="col-12 mt-2 text-center">   
-                            <p class="text-light mb-1" id="attack-text"> "Sed ut perspiciatis unde omnis iste natus error sit voluptatem </p>  
-                            <p class="text-light mb-1" id="defend-text"> "Sed ut perspiciatis unde omnis iste natus error sit voluptatem </p>  
-                        </div>
-                    </div>
+                    </div>  
                 </div>
-                <div class="row m-2 justify-content-center border" id="graveyard"> 
+                <div class="row m-2 justify-content-center border graveyard-div">  
                     <h5 class="font-weight-bold text-danger custom-font mt-1">Graveyard</h5>
+                    <div class="row m-2 justify-content-center" id="graveyard"> 
+                    </div>
                 </div> 
-            </div> 
+            </div>  
         </div>             
         <script src="assets/javascript/game.js"></script> <!--Link to external javascript file -->    
     </body>

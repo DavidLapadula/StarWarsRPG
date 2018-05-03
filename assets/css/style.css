@@ -4,7 +4,7 @@ body {
     background-attachment: fixed;
     background-position: center; 
 }
-
+ 
 #starWars-header {
     margin-top: 0.25em; 
     font-family: 'Press Start 2P', 'cursive'; 
@@ -20,10 +20,14 @@ body {
 } 
 
 .character-image {
-    height: 4em; 
-    width: 7em; 
-}    
-   
+    height: 6em; 
+    width: 8em; 
+}     
+
+.remove-click { /* used to ensure click event on player registers if anywhere on the div is clicked, not one of its sibling element */ 
+    pointer-events: none; 
+}
+
 .character-start {
     background-color: white;
     color: black; 
@@ -54,3 +58,14 @@ body {
     width: 30em; 
 }
 
+.active-image-character { 
+  position: absolute; 
+  top: 3em; 
+  left: 3em;  
+} /* classes used to overlay the chosen character and enemey onto their respective image in the battle section */ 
+
+.active-image-enemy {
+    position: absolute; 
+    top: 3em;  
+    right: 2em; 
+  } 
