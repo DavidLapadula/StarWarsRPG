@@ -4,11 +4,6 @@ body {
     background-attachment: fixed;
     background-position: center; 
 }
- 
-#starWars-header {
-    margin-top: 0.25em; 
-    font-family: 'Press Start 2P', 'cursive'; 
-} 
 
 .custom-font { 
     font-family: 'Press Start 2P', 'cursive'; 
@@ -24,7 +19,7 @@ body {
     width: 8em; 
 }     
 
-.remove-click { /* used to ensure click event on player registers if anywhere on the div is clicked, not one of its sibling element */ 
+.remove-click { /* used to ensure click event on player registers if anywhere on the div is clicked, not one of its sibling elements */ 
     pointer-events: none; 
 }
 
