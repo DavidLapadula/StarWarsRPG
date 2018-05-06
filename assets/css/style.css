@@ -29,6 +29,7 @@ body {
     border-style: solid;
     border-color: green; 
     border-width: 0.25em;
+    opacity: 1; 
 }  
  
 .character-enemy {

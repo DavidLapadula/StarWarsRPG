@@ -1,9 +1,8 @@
 $(document).ready(function () { 
-    // reference variables for HTML elements that need to be manipulated
-        var topRowContent = $("#top-row-content");    
+    // reference variables for HTML elements that need to be manipulated  
+        var choiceRow = $("#choice-row"); 
         var characterHeading = $("#character-heading");     
         var enemyHeading = $("#enemy-heading");     
-        var choiceRow = $("#choice-row"); 
         var characterDiv = $(".character-play"); 
         var activePlayer = $("#active-player"); 
         var activeDefender = $("#active-defender"); 
@@ -16,44 +15,47 @@ $(document).ready(function () {
         var graveyard = $("#graveyard");   
         var replayButton = $("#replay-button");  
 
-    // initial boolean to turn the game on when the page loads and control the replay button
-        var initialState = true; 
-        var gameSwitch = true; 
-        var kills = 0; 
-        var characterFull; 
-        var enemyFull;  
-
     // character values stored as data properties on each character div with 'data' class
-        var darthVaderData = $("#darth-vader-data").data("dataProperties", {name: 'Darth Vader', health: 80, attack: 5, counter: 8});
-        var yodaData = $("#yoda-data").data("dataProperties", {name: 'Yoda', health: 120, attack: 8, counter: 10,});
-        var obiWanData = $("#obi-wan-data").data("dataProperties", {name: 'Obi Wan',health: 140, attack: 4, counter: 7,});
-        var hanSoloData = $("#han-solo-data").data("dataProperties", {name: 'Han Solo', health: 100, attack: 8, counter: 5,});  
-    
-    // conditions for the beggining of the game
-        var gameStart = function () {
-            battleArena.hide(); 
-            graveyardDiv.hide();  
-            enemyHeading.hide();   
-            replayButton.hide();      
-        }
+        var darthVaderData = $("#darth-vader-data").data("dataProperties", {name: 'Darth Vader', health: 180, attack: 7, counter: 20});
+        var yodaData = $("#yoda-data").data("dataProperties", {name: 'Yoda', health: 150, attack: 8, counter: 20,}); 
+        var obiWanData = $("#obi-wan-data").data("dataProperties", {name: 'Obi Wan',health: 100, attack: 14, counter: 5,});
+        var hanSoloData = $("#han-solo-data").data("dataProperties", {name: 'Han Solo', health: 120, attack: 8, counter: 15,});    
 
-    // when user wins or loses, prevent functions from executing    
-        var gameOver = function () {    
-            replayButton.show(); 
-        }
- 
+     // initial value to turn the game on when the page loads and control the replay button
+        var kills;  
+        var initialHealth;  
+        var enemyChosen; 
+        var characterChosen; 
+
+    // conditions for start of the game
+    var gameInitialize = function () {
+        for (var i = 0; i < characterDiv.length; i++) {
+            initialHealth = $(characterDiv[i]).find('.data').data('dataProperties').health; 
+            $(characterDiv[i]).find('.data').text(initialHealth); 
+        }   
+        playerActive(); 
+        replayButton.hide(); 
+        attackText.hide(); 
+        defendText.hide();  
+        attackButton.attr('disabled', false); 
+        characterHeading.show().text("CHOOSE YOUR CHARACTER");  
+        enemyHeading.hide(); 
+        characterChosen = ''; 
+        enemyChosen = ''; 
+        kills = 0; 
+    } 
+
     // takes one parameter, tests if the argument passed has any children
-        var playerActive = function () { 
-            if (activePlayer.children().length < 1) {
-                resultText.text('AWAITING PLAYER CHOICE'); 
-                characterFull = false; 
-            } else if (activeDefender.children().length < 1) {
-                resultText.text('CHOOSE AN ENEMY'); 
-                enemyFull = false;   
-            }
-        }     
+       var playerActive = function () { 
+        if (activePlayer.children().length < 1) {
+            resultText.text('AWAITING PLAYER CHOICE'); 
+        } else if (activeDefender.children().length < 1) {
+            resultText.text('CHOOSE AN ENEMY'); 
+        }
+    }    
 
-        var hasChildren = function (divTest) { // takes one parameter, tests if the argument passed has any children
+    // function used to test which div's have any children and control the state of the game
+        var hasChildren = function (divTest) {
             if (divTest.children().length > 0) {
                 return true;  
             } else {
@@ -61,31 +63,14 @@ $(document).ready(function () {
             }
         }  
 
-    // test for what occurs when the user kills an enemy. Accounts for winning the game when the last enemy dies
-        var killedEnemy = function () {
-            enemyLive.text('DEFEATED'); 
-            newEnemy.css({border: '0.25em solid #ff0000'}).animate({opacity: "0.5", }, 1500, "linear", function() {graveyard.append(newEnemy);});     
-            if (kills < 3) {  
-                attackText.text("You Defeated " + enemyName + " !")
-                defendText.text("");      
-                resultText.text('AWAITING NEXT ENEMY'); 
-                attackButton.attr('disabled', true);    
-            } else if (kills === 3) {    
-                attackText.text("You Defeated " + enemyName + " !")
-                defendText.text(" You have won the game ! ");   
-                resultText.text("");  
-                choiceRow.append(newCharacter); 
-                enemyHeading.text("WINNER");   
-                gameOver(); 
-            
-            } 
-        }      
- 
-    //Checks if the user has chosen a character and an enemy
+    // Sets the conditions for gameplay and Checks if the user has chosen a character and an enemy
         var choosePlayer = function  ()  {
-            if (characterFull === false) {
+            attackText.show(); 
+            defendText.show(); 
+            characterHeading.hide(); 
+            if (!hasChildren(activePlayer)) {  
                 resultText.text('PLAYER ACTIVE'); 
-                var characterChosen = event.target;  
+                characterChosen = event.target;  
                 newCharacter = $(characterChosen); // make jquery object from target so can use methods on it later
                 characterLive = newCharacter.find('.data'); // data class of 'p' element. It carries the data values of the character and is updated based on score
                 characterHealth = characterLive.data("dataProperties").health; 
@@ -94,10 +79,9 @@ $(document).ready(function () {
                 characterName = characterLive.data("dataProperties").name;  
                 activePlayer.append(newCharacter);   
                 choiceRow.children().addClass('character-enemy').removeClass('character-start'); 
-                characterFull = true; 
-            } else if  (enemyFull === false) {
+            } else if (!hasChildren(activeDefender)) {
                 resultText.text('ATTACK ACTIVE'); 
-                var enemyChosen = event.target; 
+                enemyChosen = event.target; 
                 newEnemy = $(enemyChosen)// make jquery object from target so can use methods on it later
                 enemyLive = newEnemy.find('.data');  // data class of 'p' element. It carries the data values of the character and is updated based on score
                 enemyHealth = enemyLive.data("dataProperties").health; 
@@ -106,25 +90,16 @@ $(document).ready(function () {
                 enemyName = enemyLive.data("dataProperties").name; 
                 activeDefender.append(newEnemy);   
                 activeDefender.children().addClass('character-defender').removeClass('character-start');    
-                enemyFull = true; 
                 }     
-        };       
+            if (hasChildren(choiceRow)) {
+                enemyHeading.show().text('ENEMIES');  
+            } else if (!hasChildren(choiceRow)) {
+                enemyHeading.show().text('FINAL BATTLE');   
+            }
+        };     
         
-    // function run if the character's HP goes below 1
-        var gotKilled = function () {
-            resultText.text("You have been defeated by " + enemyName); 
-            defendText.text("Press Replay to Try again");
-            attackText.text("");     
-            enemyLive.text("CHAMPION");       
-            enemyHeading.text("UNCHALLENGED");    
-            characterLive.text('DEFEATED');   
-            newCharacter.css({border: '0.25em solid #ff0000'});        
-            gameOver(); 
-        }      
-
-      
-   // button click check the state of the game on every call     
-    var gameState = function () { 
+    // called every time attack button is engaged. Checks outcome of attack and game responds accordingly
+        var healthCheck = function () { 
             enemyHealth = enemyHealth -= characterAttack;
             characterHealth = characterHealth -= enemyCounter;
                 if (enemyHealth < 1) {
@@ -135,49 +110,101 @@ $(document).ready(function () {
                 } else {
                     attackText.text("You attacked " + enemyName + " for " + characterAttack + " points !");
                     defendText.text(enemyName + " attacked you back for " + enemyCounter + " points !");
-                    characterHealth = characterHealth -= enemyCounter;
                     characterAttack = characterAttack += attackIncrement;   
                     characterLive.text(characterHealth); 
                     enemyLive.text(enemyHealth); 
                 }
             }
-  
-    // Game begins at first function call of game start 
-   
-    if (initialState === true ) {
-        gameStart();   
-        choiceRow.on("click", function () { 
-            console.log(initialState); 
-            gameSwitch = true; 
-            topRowContent.hide();    
-            battleArena.show();    
-            graveyardDiv.show();  
-            characterHeading.hide()
-            enemyHeading.show(); 
-            enemyHeading.text('ENEMIES AVAILABLE'); 
-            playerActive();  
-        });   
-    }
- 
 
-    // function that controls state of the game
-    if (gameSwitch === true) {
-        characterDiv.on('click', function () {
-            initialState = false;
-            playerActive();  
+      // test for what occurs when the user kills an enemy. Accounts for winning the game when the last enemy dies
+        var killedEnemy = function () {
+            enemyLive.text('DEFEATED'); 
+            graveyard.append(newEnemy);    
+            if (kills < 3) {  
+                attackText.text("You Defeated " + enemyName + " !")
+                defendText.text("");      
+                resultText.text('AWAITING NEXT ENEMY'); 
+            } else if (kills === 3) {    
+                enemyHeading.text('MISSION SUCCESSFUL'); 
+                attackText.text("You Defeated " + enemyName + " !")
+                defendText.text(" You have won the game ! ");   
+                resultText.text("");  
+                characterLive.text("CHAMPION"); 
+                gameOver(); 
+            
+            }  
+        }   
+    
+    // function run if the character's HP goes below 1
+           var gotKilled = function () {
+            if (hasChildren(choiceRow)) {
+                enemyHeading.text("UNCHALLENGED");  
+            } else {
+                enemyHeading.text('MISSION FAILURE')
+            }
+            resultText.text("You have been defeated by " + enemyName); 
+            attackText.text("");     
+            enemyLive.text("CHAMPION");         
+            characterLive.text('DEFEATED');       
+            gameOver(); 
+        }     
+
+    // handles the replay button
+        var replay = function () {
+            choiceRow.append(characterDiv)
+            characterDiv.removeClass('character-enemy character-defender').addClass("character-start")
+            gameInitialize();    
+        }; 
+ 
+ 
+    // when user wins or loses, prevent functions from executing    
+        var gameOver = function () {    
+            replayButton.show(); 
+            attackButton.attr('disabled', true) 
+            defendText.text('PRESS REPLAY TO PLAY AGAIN'); 
+        }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    if (!hasChildren(activePlayer) && !hasChildren(activeDefender)) {
+            gameInitialize();
+    }            
+
+    characterDiv.on('click', function () {
+        if (!hasChildren(activePlayer) || !hasChildren(activeDefender))
+            attackText.text(''); 
+            defendText.text('');  
             choosePlayer();   
-             if (hasChildren(activeDefender) && hasChildren(activePlayer) ) {
-                attackButton.attr('disabled', false);  
-            } 
-        });    
-    }
- 
-    attackButton.on ('click', function () {
-        gameState(); 
-    })
+        });   
 
-      
-});                                                                                                                                                                                                                                                                                                                                                                                                               
+    attackButton.on ('click', function () {
+        if (!hasChildren(activeDefender)) {
+            resultText.text('PICK AN ENEMY TO LAUNCH AN ATTACK')
+        } else if (hasChildren(activePlayer) && hasChildren(activeDefender) ) {
+            healthCheck(); 
+        }  
+    }); 
+    
+    replayButton.on('click', function () {
+        replay();  
+    });  
+
+    
+  
+});               
+
+
+
+
+
+
+
+
+
+
+           
+
+
           
       
     
