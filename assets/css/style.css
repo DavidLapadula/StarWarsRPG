@@ -12,12 +12,12 @@ body {
 #message-board {
     font-family: monospace; 
     font-size: 1.1em; 
-} 
+}  
 
 .character-image {
-    height: 6em; 
-    width: 8em; 
-}     
+    height: 5em;  
+    width: 7em; 
+}       
 
 .remove-click { /* used to ensure click event on player registers if anywhere on the div is clicked, not one of its sibling elements */ 
     pointer-events: none; 
@@ -29,7 +29,7 @@ body {
     border-style: solid;
     border-color: green; 
     border-width: 0.25em;
-    opacity: 1; 
+    opacity: 1;  
 }  
  
 .character-enemy {
@@ -38,7 +38,7 @@ body {
     border-style: solid;
     border-color: black; 
     border-width: 0.25em;
-}  
+}   
 
 .character-defender {
     background-color: black;
@@ -50,18 +50,18 @@ body {
 }
 
 .fighter-ship {
-    height: 14em; 
-    width: 30em; 
+    height: 12em; 
+    width: 27em;  
 }
 
 .active-image-character { 
   position: absolute; 
   top: 3em; 
-  left: 3em;  
+  left: 6em;  
 } /* classes used to overlay the chosen character and enemey onto their respective image in the battle section */ 
 
 .active-image-enemy {
     position: absolute; 
     top: 3em;  
-    right: 2em; 
+    right: 6em; 
   } 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head> 
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <!-- <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css"/> Reset style sheet requested by instructions -->
@@ -18,62 +18,77 @@
                 <div class="col-12">   
                     <h1  class="font-weight-bold text-center text-warning mt-3 custom-font">Star Wars RPG</h1>    <!-- Game Header-->
                 </div>            
-            </div>                       
+            </div>                        
             <div class="container border pb-3 mt-2">              
-                <div class="row">
-                    <div class="col-12 text-light text-center mt-2"> 
-                        <h3 class="text-danger" id="enemy-heading"></h3> <!-- Text Displayed once user has chosen character-->
+                <div class="row p-3"> 
+                    <div class="col-md-6 text-center" id="character-column">
                         <h3 class="text-warning" id="character-heading"></h3> <!-- Text displayed when the game starts-->
-                    </div>     
-                    <div class="row w-100 d-flex justify-content-center" id="choice-row">   <!-- Has the charatcer choices. Gets moved to the top div once the game starts and enemies remain there-->
-                        <div class="character-play mr-4 mt-2 character-start"> 
-                            <div class="remove-click"> 
-                                <p class="m-0 h6 text-center">Darth Vader</p> 
-                                <img src="assets/images/darth_vader.jpg" class="character-image p-2">  
-                                <p class="m-0 h6 text-center data" id="darth-vader-data"></p>  
-                            </div>   
-                        </div>               
-                        <div class="character-play mr-4 mt-2 character-start">   
-                            <div class="remove-click">    
-                                <p class="m-0 h6 text-center remove-click">Yoda</p>  
-                                <img src="assets/images/yoda.jpg" class="character-image p-2">     
-                                <p class="m-0 h6 text-center remove-click data" id="yoda-data"></p>    
-                            </div>    
-                        </div>           
-                        <div class="character-play mr-4 mt-2 character-start" >     
-                            <div class="remove-click"> 
-                                <p class="m-0 h6 text-center remove-click">Obi-Wan</p>            
-                                <img src="assets/images/obi_wan.jpg" class="character-image p-2">  
-                                <p class="m-0 h6 text-center remove-click data" id="obi-wan-data"></p>  
-                            </div>   
-                        </div>              
-                        <div class="character-play mr-4 mt-2 character-start">        
-                            <div class="remove-click"> 
-                                <p class="m-0 h6 text-center remove-click">Han Solo</p>    
-                                <img src="assets/images/han_solo.png" class="character-image p-2">      
-                                <p class="m-0 h6 text-center remove-click data" id="han-solo-data"></p>     
+                        <div id="kill-count"> 
+                            <h3 class="text-danger h3">KILL COUNT</h3>
+                            <p class="text-light h2"></p> 
+                        </div>
+                        <div class="row w-100 d-flex justify-content-center" id="choice-row">   <!-- Has the charatcer choices. Gets moved to the top div once the game starts and enemies remain there-->
+                            <div class="character-play mr-2 mt-2 character-start"> 
+                                <div class="remove-click">  
+                                    <p class="m-0 h6 text-center">Darth Vader</p> 
+                                    <img src="assets/images/darth_vader.jpg" class="character-image p-2">  
+                                    <p class="m-0 h6 text-center data" id="darth-vader-data"></p>  
+                                </div>    
+                            </div>                
+                            <div class="character-play mr-2 mt-2 character-start" >   
+                                <div class="remove-click">    
+                                    <p class="m-0 h6 text-center remove-click">Yoda</p>  
+                                    <img src="assets/images/yoda.jpg" class="character-image p-2">     
+                                    <p class="m-0 h6 text-center remove-click data" id="yoda-data"></p>    
+                                </div>     
+                            </div>             
+                            <div class="character-play mr-2 mt-2 character-start" >     
+                                <div class="remove-click"> 
+                                    <p class="m-0 h6 text-center remove-click">Obi-Wan</p>            
+                                    <img src="assets/images/obi_wan.jpg" class="character-image p-2">  
+                                    <p class="m-0 h6 text-center remove-click data" id="obi-wan-data"></p>  
+                                </div>   
+                            </div>                
+                            <div class="character-play mr-2 mt-2 character-start">        
+                                <div class="remove-click"> 
+                                    <p class="m-0 h6 text-center remove-click">Han Solo</p>    
+                                    <img src="assets/images/han_solo.png" class="character-image p-2">      
+                                    <p class="m-0 h6 text-center remove-click data" id="han-solo-data"></p>     
+                                </div>                             
                             </div>                             
-                        </div>                           
+                        </div>   
+                    </div> 
+                    <div class="col-md-6 text-center" id="enemy-column"> 
+                        <h3 class="text-danger" id="enemy-heading"></h3> <!-- Text displayed when the game starts--> 
+                        <p class="text-light custom font h5 text-left" id="instruction-text"> 
+                            Welcome to Star Wars RPG! 
+                            <br> <br>  
+                            Choose a character then launch attacks.Keep in mind with every attack, a counter attack will follow!
+                            <br> <br> 
+                            Try to defeat every enemy before your health gets to zero!
+                        </p> 
                     </div>             
                 </div>         
                 <div class="row m-2 p-2" id="battle-arena">  <!-- Area where the 'battle' occurs. Chosen player and enemy get moved on top of respective 'fighter ship'-->
                     <div class="col-12 text-center"> 
                         <h5 class="font-weight-bold text-warning custom-font mt-3 mb-4"> Battle Arena</h5>
-                    </div>        
+                    </div>           
                     <div class="row">
-                        <div class="col-md-6 col-sm-12 text-center" id="character-ship">
+                        <div class="col-md-6 col-sm-12 text-center mt-2" id="character-ship">
                             <h6 class="font-weight-bold text-light custom-font">Your Player</h6> <!-- Player Chosen-->
                             <img src="assets/images/hero_fighterShip.jpg" class="fighter-ship img-fluid">  
-                            <div class="active-image-character" id="active-player">
-                            </div>      
-                            <button type="button" class="btn btn-sm btn-danger mt-2" id="attack-button">ATTACK !</button>
+                            <div class="active-image-character" id="active-player"> 
+                            </div>       
+                            <div class="row w-100 d-flex justify-content-center"> 
+                                <button type="button" class="btn btn-sm btn-danger mt-2" id="attack-button">ATTACK !</button>
+                            </div>
                         </div>     
                         <div class="col-md-6 col-sm-12 text-center" id="defender-ship">
-                            <h6 class="font-weight-bold text-light custom-font">Defender</h6> <!-- Current defender-->
+                            <h6 class="font-weight-bold text-light custom-font mt-2">Defender</h6> <!-- Current defender-->
                             <img src="assets/images/enemy_fighterShip.jpg" class="fighter-ship img-fluid">   
                             <div class="active-image-enemy" id="active-defender">
-                            </div>      
-                        </div>        
+                            </div>       
+                        </div>         
                         <div class="row w-100 m-3 text-center">    
                             <div class="col-md-6">
                                 <p class="text-danger h4 font-weight-bold mb-1" id="result-text"></p> 
@@ -81,9 +96,9 @@
                             <div class="col-md-6">
                                 <p class="text-warning h5 mb-2" id="attack-text"></p>   
                                 <p class="text-warning h5 m-0" id="defend-text"></p>  
-                            </div>  
+                            </div>    
                         </div>      
-                    </div>         
+                    </div>          
                 </div>  
                 <div class="col-12 m-2 justify-content-center graveyard-div">  
                     <div class="row justify-content-center">
@@ -93,8 +108,8 @@
                     </div>        
                 </div>     
             </div>     
-            <input type="button" value="Play again?" class="col-md-6 offset-md-3 btn btn-warning btn-md mt-2 text-dark" id="replay-button"> Play again button reloads page  
+            <button type="button"class="col-md-6 offset-md-3 btn btn-warning btn-md mt-2 text-dark h2 font-weight-bold" id="replay-button">PLAY AGAIN?</button>
         </div>                  
-        <script src="assets/javascript/game.js"></script> <!--Link to external javascript file -->    
+        <script src="assets/javascript/game.js"></script> <!--Link to external javascript file with jquery   -->    
     </body>
 </html>         
