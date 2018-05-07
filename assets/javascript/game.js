@@ -21,9 +21,9 @@ var graveyard = $("#graveyard");
 var replayButton = $("#replay-button");  
 
 // character values stored as data properties on each character div with 'data' class
-var darthVaderData = $("#darth-vader-data").data("dataProperties", {name: 'Darth Vader', health: 150, attack: 7, counter: 20});
+var darthVaderData = $("#darth-vader-data").data("dataProperties", {name: 'Darth Vader', health: 150, attack: 7, counter: 5});
 var yodaData = $("#yoda-data").data("dataProperties", {name: 'Yoda', health: 170, attack: 8, counter: 10,}); 
-var obiWanData = $("#obi-wan-data").data("dataProperties", {name: 'Obi Wan',health: 100, attack: 14, counter: 5,});
+var obiWanData = $("#obi-wan-data").data("dataProperties", {name: 'Obi Wan',health: 100, attack: 14, counter: 20,});
 var hanSoloData = $("#han-solo-data").data("dataProperties", {name: 'Han Solo', health: 120, attack: 8, counter: 15,});    
 
 // global variables used in game
