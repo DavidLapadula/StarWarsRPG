@@ -23,7 +23,7 @@
                 <div class="row p-2"> 
                     <div class="col-md-6 text-center" id="character-column">
                         <h3 class="text-warning" id="character-heading"></h3> <!-- Text displayed when the game starts-->
-                        <div id="counters">  
+                        <div id="counters">  <!-- Counters become active when the game starts-->
                             <h3 class="text-danger h3">KILL COUNT</h3>
                             <p class="text-light h2 kills"></p> 
                             <h3 class="text-danger h3 mt-4">ATTACK POWER</h3>
@@ -49,26 +49,26 @@
                                     <p class="m-0 h6 text-center remove-click">Obi-Wan</p>            
                                     <img src="assets/images/obi_wan.jpg" class="character-image p-2">  
                                     <p class="m-0 h6 text-center remove-click data" id="obi-wan-data"></p>  
-                                </div>   
-                            </div>                
+                                </div>    
+                            </div>                  
                             <div class="character-play mr-2 mt-2 character-start">        
                                 <div class="remove-click"> 
                                     <p class="m-0 h6 text-center remove-click">Han Solo</p>    
                                     <img src="assets/images/han_solo.png" class="character-image p-2">      
                                     <p class="m-0 h6 text-center remove-click data" id="han-solo-data"></p>     
                                 </div>                             
-                            </div>                             
+                            </div>                                
                         </div>   
-                    </div> 
+                    </div>  
                     <div class="col-md-6 text-center" id="enemy-column"> 
-                        <h3 class="text-danger" id="enemy-heading"></h3> <!-- Text displayed when the game starts--> 
-                        <p class="text-light custom font h5 text-left" id="instruction-text"> 
+                        <h3 class="text-danger" id="enemy-heading"></h3> <!-- Text displayed when a character is chosen--> 
+                        <p class="text-light custom font h5 text-left" id="instruction-text"> <!-- Text displayed when the game starts--> 
                             Welcome to Star Wars RPG! 
                             <br> <br>  
                             Choose a character then launch attacks. Keep in mind with every attack, a counter attack will follow!
                             <br> <br> 
                             Try to defeat every enemy before your health gets to zero!
-                        </p> 
+                        </p>   
                     </div>               
                 </div>         
                 <div class="row m-2 p-2" id="battle-arena">  <!-- Area where the 'battle' occurs. Chosen player and enemy get moved on top of respective 'fighter ship'-->
@@ -89,18 +89,18 @@
                             <h6 class="font-weight-bold text-light custom-font mt-2">Defender</h6> <!-- Current defender-->
                             <img src="assets/images/enemy_fighterShip.jpg" class="fighter-ship img-fluid">   
                             <div class="active-image-enemy" id="active-defender">
-                            </div>       
+                            </div>         
                         </div>         
-                        <div class="row w-100 m-1 text-center">    
+                        <div class="row w-100 m-1 text-center">      
                             <div class="col-md-6">
-                                <p class="text-danger h4 font-weight-bold mb-1" id="result-text"></p> 
+                                <p class="text-danger h4 font-weight-bold mb-1 mt-1" id="result-text"></p> 
                             </div>  
                             <div class="col-md-6">
                                 <p class="text-warning h5 mb-2" id="attack-text"></p>   
                                 <p class="text-warning h5 m-0" id="defend-text"></p>  
                             </div>    
                         </div>      
-                    </div>          
+                    </div>            
                 </div>  
                 <div class="col-12 m-2 justify-content-center graveyard-div">  
                     <div class="row justify-content-center">

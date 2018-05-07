@@ -30,12 +30,12 @@ body {
     background-color: white;
     color: black; 
     border-style: solid;
-    border-color: green; 
+    border-color: green;  
     border-width: 0.25em;
-    opacity: 1; 
+    opacity: 1;     
 }    
- 
-.character-enemy {
+   
+.character-enemy {  
     background-color: red;
     color: black; 
     border-style: solid;
@@ -68,7 +68,7 @@ body {
     width: 27em;  
 }
 
-/* classes used to overlay the chosen character and enemey onto their respective image in the battle section */ 
+/* classes used to overlay the chosen character and enemy onto their respective image in the battle section */ 
 .active-image-character { 
   position: absolute; 
   top: 3em; 
