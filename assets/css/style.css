@@ -4,8 +4,9 @@ body {
     background-attachment: fixed;
     background-position: center; 
 }
-
-.custom-font { 
+  
+/* Used google font to get the star wars font*/ 
+.custom-font {
     font-family: 'Press Start 2P', 'cursive'; 
 } 
 
@@ -17,20 +18,22 @@ body {
 .character-image {
     height: 5em;  
     width: 7em; 
-}       
+}        
 
-.remove-click { /* used to ensure click event on player registers if anywhere on the div is clicked, not one of its sibling elements */ 
+/* used to ensure click event on player registers if anywhere on the div is clicked, not one of its sibling elements */ 
+.remove-click { 
     pointer-events: none; 
-}
-
-.character-start {
+}   
+ 
+/* Various classes used on the players depending on the state of the game*/ 
+.character-start { 
     background-color: white;
     color: black; 
     border-style: solid;
     border-color: green; 
     border-width: 0.25em;
-    opacity: 1;  
-}  
+    opacity: 1; 
+}    
  
 .character-enemy {
     background-color: red;
@@ -38,6 +41,7 @@ body {
     border-style: solid;
     border-color: black; 
     border-width: 0.25em;
+    opacity: 1; 
 }   
 
 .character-defender {
@@ -46,19 +50,30 @@ body {
     border-style: solid;
     border-color: green; 
     border-width: 0.25em;
+    opacity: 1; 
  
 }
+
+.character-defeated {
+    background-color: white;
+    color: black; 
+    border-style: solid;
+    border-color:red; 
+    border-width: 0.25em;
+    opacity: 0.5; 
+} 
 
 .fighter-ship {
     height: 12em; 
     width: 27em;  
 }
 
+/* classes used to overlay the chosen character and enemey onto their respective image in the battle section */ 
 .active-image-character { 
   position: absolute; 
   top: 3em; 
   left: 6em;  
-} /* classes used to overlay the chosen character and enemey onto their respective image in the battle section */ 
+} 
 
 .active-image-enemy {
     position: absolute; 

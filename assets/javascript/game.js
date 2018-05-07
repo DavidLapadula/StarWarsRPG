@@ -7,7 +7,7 @@ var enemyColumn = $("#enemy-column");
 var characterHeading = $("#character-heading");     
 var instructionText= $("#instruction-text");     
 var enemyHeading = $("#enemy-heading");     
-var killCount = $("#kill-count")
+var counterValues = $("#counters")
 var characterDiv = $(".character-play"); 
 var activePlayer = $("#active-player"); 
 var activeDefender = $("#active-defender"); 
@@ -18,6 +18,7 @@ var resultText= $("#result-text");
 var attackButton = $("#attack-button"); 
 var graveyardDiv = $(".graveyard-div");   
 var graveyard = $("#graveyard");   
+var themeSong = $("#theme-song");   
 var replayButton = $("#replay-button");  
 
 // character values stored as data properties on each character div with 'data' class
@@ -29,7 +30,7 @@ var hanSoloData = $("#han-solo-data").data("dataProperties", {name: 'Han Solo', 
 // initial value to turn the game on when the page loads and control the replay button
 var kills = 0;  
 var initialHealth;  
-var enemyChosen;  
+var enemyChosen;     
 var characterChosen;   
 
 // conditions for start of the game
@@ -39,10 +40,10 @@ for (var i = 0; i < characterDiv.length; i++) {
     $(characterDiv[i]).find('.data').text(initialHealth); 
 }   
 playerActive(); 
-characterDiv.removeClass('remove-click'); 
+characterDiv.removeClass('remove-click character-defeated'); 
 characterColumn.append(choiceRow);  
 replayButton.hide(); 
-killCount.hide();
+counterValues.hide();
 attackText.hide(); 
 defendText.hide();  
 characterHeading.show().text("CHARACTER CHOICES");  
@@ -51,7 +52,7 @@ enemyHeading.hide();
 characterChosen = ''; 
 enemyChosen = ''; 
 kills = 0;   
-} 
+}  
 
 // function to run every time the game starts to display a message depending on what the user has chosen
 var playerActive = function () { 
@@ -68,7 +69,7 @@ var hasChildren = function (divTest) {
     if (divTest.children().length > 0) {
         return true;  
     } else {
-        return false;   
+        return false;    
     } 
 }   
 
@@ -77,12 +78,12 @@ var choosePlayer = function  ()  {
     attackText.show(); 
     defendText.show();   
     characterHeading.hide(); 
-    killCount.children("p").text(kills);    
+    counterValues.children(".kills").text(kills);    
     if (!hasChildren(activePlayer)) {     
         attackButton.attr('disabled', false); 
         resultText.text('PLAYER ACTIVE'); 
         instructionText.hide()
-        killCount.show();    
+        counterValues.show();      
         enemyColumn.append(choiceRow);  
         characterChosen = event.target;  
         newCharacter = $(characterChosen); // make jquery object from target so can use methods on it later
@@ -110,12 +111,13 @@ var choosePlayer = function  ()  {
     } else if (!hasChildren(choiceRow)) {
         enemyHeading.show().text('FINAL BATTLE: LAST ENEMY');   
     } 
-};      
+};       
   
 // called every time attack button is engaged. Checks outcome of attack and game responds accordingly
 var healthCheck = function () { 
     enemyHealth = enemyHealth -= characterAttack;
     characterHealth = characterHealth -= enemyCounter;
+    counterValues.children(".power").text(characterAttack);   
         if (enemyHealth < 1) {
             kills ++; 
             killedEnemy(); 
@@ -129,12 +131,13 @@ var healthCheck = function () {
             enemyLive.text(enemyHealth); 
         } 
     }  
-  
+   
 // test for what occurs when the user kills an enemy. Accounts for winning the game when the last enemy dies
 var killedEnemy = function () {
-    enemyLive.text('DEFEATED'); 
+    enemyLive.text('DEFEATED');
+    newEnemy.addClass('character-defeated') 
     graveyard.append(newEnemy);   
-    killCount.children("p").text(kills);     
+    counterValues.children(".kills").text(kills);      
     if (kills < 3) {  
         attackText.text("You Defeated " + enemyName + " !")
         defendText.text("");      
@@ -147,9 +150,8 @@ var killedEnemy = function () {
         resultText.text("");  
         characterLive.text("CHAMPION"); 
         gameOver();  
-          
-    }    
-}   
+    }     
+}     
 
 // function run if the character's HP goes below 1
     var gotKilled = function () {
@@ -161,8 +163,9 @@ var killedEnemy = function () {
     resultText.text("You have been defeated by " + enemyName); 
     attackText.text("Your Health has dropped below 0 !");     
     enemyLive.text("CHAMPION");         
-    characterLive.text('DEFEATED');       
-    gameOver(); 
+    characterLive.text('DEFEATED'); 
+    newCharacter.addClass("character-defeated")      
+    gameOver();  
 }     
 
 // handles the replay button
@@ -185,6 +188,7 @@ var gameOver = function () {
 if (!hasChildren(activePlayer) && !hasChildren(activeDefender)) {
         gameInitialize();
 }             
+
 
 //click event for every character. Clears the text if the enemy is empty and then runs the choose player function
 characterDiv.on('click', function () {

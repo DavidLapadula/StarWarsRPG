@@ -12,29 +12,31 @@
      <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">     <!-- Favicon-->
     <title>StarWars RPG</title>
 </head> 
-    <body>     
+    <body>         
         <div class="container p-0" id="main-content">        
             <div class="row">    
                 <div class="col-12">   
                     <h1  class="font-weight-bold text-center text-warning mt-3 custom-font">Star Wars RPG</h1>    <!-- Game Header-->
-                </div>            
-            </div>                        
-            <div class="container border pb-3 mt-2">              
-                <div class="row p-3"> 
+                </div>              
+            </div>                          
+            <div class="container border pb-3 mt-2">                
+                <div class="row p-2"> 
                     <div class="col-md-6 text-center" id="character-column">
                         <h3 class="text-warning" id="character-heading"></h3> <!-- Text displayed when the game starts-->
-                        <div id="kill-count"> 
+                        <div id="counters">  
                             <h3 class="text-danger h3">KILL COUNT</h3>
-                            <p class="text-light h2"></p> 
+                            <p class="text-light h2 kills"></p> 
+                            <h3 class="text-danger h3 mt-4">ATTACK POWER</h3>
+                            <p class="text-light h2 power"></p> 
                         </div>
                         <div class="row w-100 d-flex justify-content-center" id="choice-row">   <!-- Has the charatcer choices. Gets moved to the top div once the game starts and enemies remain there-->
                             <div class="character-play mr-2 mt-2 character-start"> 
-                                <div class="remove-click">  
+                                <div class="remove-click">     
                                     <p class="m-0 h6 text-center">Darth Vader</p> 
                                     <img src="assets/images/darth_vader.jpg" class="character-image p-2">  
                                     <p class="m-0 h6 text-center data" id="darth-vader-data"></p>  
                                 </div>    
-                            </div>                
+                            </div>                 
                             <div class="character-play mr-2 mt-2 character-start" >   
                                 <div class="remove-click">    
                                     <p class="m-0 h6 text-center remove-click">Yoda</p>  
@@ -63,15 +65,15 @@
                         <p class="text-light custom font h5 text-left" id="instruction-text"> 
                             Welcome to Star Wars RPG! 
                             <br> <br>  
-                            Choose a character then launch attacks.Keep in mind with every attack, a counter attack will follow!
+                            Choose a character then launch attacks. Keep in mind with every attack, a counter attack will follow!
                             <br> <br> 
                             Try to defeat every enemy before your health gets to zero!
                         </p> 
-                    </div>             
+                    </div>               
                 </div>         
                 <div class="row m-2 p-2" id="battle-arena">  <!-- Area where the 'battle' occurs. Chosen player and enemy get moved on top of respective 'fighter ship'-->
                     <div class="col-12 text-center"> 
-                        <h5 class="font-weight-bold text-warning custom-font mt-3 mb-4"> Battle Arena</h5>
+                        <h5 class="font-weight-bold text-warning custom-font mt-2 mb-2"> Battle Arena</h5>
                     </div>           
                     <div class="row">
                         <div class="col-md-6 col-sm-12 text-center mt-2" id="character-ship">
@@ -89,7 +91,7 @@
                             <div class="active-image-enemy" id="active-defender">
                             </div>       
                         </div>         
-                        <div class="row w-100 m-3 text-center">    
+                        <div class="row w-100 m-1 text-center">    
                             <div class="col-md-6">
                                 <p class="text-danger h4 font-weight-bold mb-1" id="result-text"></p> 
                             </div>  
@@ -109,7 +111,7 @@
                 </div>     
             </div>     
             <button type="button"class="col-md-6 offset-md-3 btn btn-warning btn-md mt-2 text-dark h2 font-weight-bold" id="replay-button">PLAY AGAIN?</button>
-        </div>                  
+        </div>                
         <script src="assets/javascript/game.js"></script> <!--Link to external javascript file with jquery   -->    
     </body>
 </html>         
