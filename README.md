@@ -9,8 +9,8 @@ Online RPG game with a Star Wars theme
 * CSS
 * Javascript
 * Jquery
-
-## Description
+ 
+## Instructions
 * Choose a character and then try to defeat all the enemies
 * Every attack elicits a counter attack from the enemy
 * Every successful attack will double your attack points
