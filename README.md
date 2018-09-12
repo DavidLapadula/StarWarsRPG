@@ -1,8 +1,10 @@
 # Star Wars RPG Game
-UofT Bootcamp - Week 4 Assignment
 
-# Description
-Online RPG game with a Star Wars theme
+## Description
+This project is a web-based role playing game with a star wars theme. I use the frontend library 'jQuery' to handle DOM manipulation.
+
+## Motivation
+Having to implement game-logic provided an excellent opportunity to pratice core javascript skills. When coupled with jQuery, managing game - state and player scores was very manageable. 
 
 ## Technology used
 * HTML
@@ -10,8 +12,11 @@ Online RPG game with a Star Wars theme
 * Javascript
 * Jquery
 
+## Screenshots
+![](./assets/images/starWarsGiphy.gif)
+
 ## Resolutions
-When developing this game I found it difficult to keep the code organized because I had to store various 'characters' all with very specific properties. I found that using a constructor object to form the framework for each player, and then creating new objects with specific player values, made the code much cleaner and easier to work with. 
+When developing this game I found it difficult to keep the code organized because I had to store various 'characters' all with very specific properties. I found that using a constructor object to form the framework for each player, creating new objects with specific player values, and then assigning those values to elements using HTML5 'data-attributes' made the code much cleaner and easier to work with. 
  
 ## Instructions
 * Choose a character and then try to defeat all the enemies
