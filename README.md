@@ -24,5 +24,4 @@ When developing this game I found it difficult to keep the code organized becaus
 * Every successful attack will double your attack points
 * If your score gets to zero then you lose the game
 
-Play it here [Star Wars Game](https://davidlapadula.github.io/unit-4-game/)
 
